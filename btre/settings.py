@@ -14,6 +14,9 @@ import dotenv
 import django_heroku
 from django.contrib.messages import constants as messages
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -175,3 +178,9 @@ EMAIL_USE_TLS = True
 django_heroku.settings(locals())
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
+
+cloudinary.config( 
+  cloud_name = "mallamshuaib", 
+  api_key = "152737981124377", 
+  api_secret = "gOemWdCKwWfZEZKDo8DDOAKCUWE" 
+)
