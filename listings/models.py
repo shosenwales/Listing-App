@@ -1,7 +1,7 @@
 from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
-from cloudinary.models import CloudinaryField
+# from cloudinary.models import CloudinaryField
 # Create your models here.
 
 
