@@ -13,10 +13,10 @@ import dj_database_url
 import dotenv
 import django_heroku
 from django.contrib.messages import constants as messages
-import os
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -161,6 +162,7 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Messages
 from django.contrib.messages import constants as messages
@@ -179,8 +181,9 @@ django_heroku.settings(locals())
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
-cloudinary.config( 
-  cloud_name = "mallamshuaib", 
-  api_key = "152737981124377", 
-  api_secret = "gOemWdCKwWfZEZKDo8DDOAKCUWE" 
-)
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'mallamshuaib', 
+    'API_KEY': '152737981124377', 
+    'API_SECRET':'gOemWdCKwWfZEZKDo8DDOAKCUWE'
+}
+ 
