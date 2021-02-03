@@ -164,7 +164,7 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Messages
 from django.contrib.messages import constants as messages
@@ -183,11 +183,7 @@ django_heroku.settings(locals())
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
-# CLOUDINARY_STORAGE = {
-#     'CLOUD_NAME': 'mallamshuaib', 
-#     'API_KEY': '152737981124377', 
-#     'API_SECRET':'gOemWdCKwWfZEZKDo8DDOAKCUWE'
-# }
+
 cloudinary.config(
     cloud_name = "mallamshuaib",
     api_key = "152737981124377",
